@@ -1,6 +1,11 @@
 const express = require('express')
+const bodyParser = require('body-parser');
 const app = express()
 const port = process.env.PORT || 4000
+
+let routers = require('./routers/users')
+app.use(bodyParser.json());
+app.use(routers)
 
 app.get('/', (req, res) => res.send('default route'))
 
